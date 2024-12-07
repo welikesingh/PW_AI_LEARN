@@ -1,0 +1,117 @@
+Q1: What is python and why is it popular?
+Answer: It is interpreter based language and mainly used for data science
+        Widely accepted by industry so that it popular. It's open source and having vary much library
+
+
+Q2: What is and interpreter in python?
+    It is program that convert high level lang code into machine readable format
+
+Q3: What are predefined keywords in python
+
+    if,for,while,import,print
+
+q4: Can keywords be used as variable names?
+    no
+
+q5 what is mutability in python?
+   ---> allowed to change value of variable
+
+q6 why are list mutable but tuples not immutable?
+
+q7 what is the difference between == and is operator?
+>>>>>>>
+identity operator  is    is not
+a=3
+b=4
+a is b
+a is not b
+
+The == operator is used to compare the values of two objects
+It checks whether the data or content of the two objects are the same.
+
+The is operator compares the identity of two objects.
+It checks whether two references point to the same object in memory, not just whether they have the same value.
+Use is when you need to check if two variables point to the same object 
+
+
+q8 what are the logical operators in python
+
+   and/or/not
+
+
+q9 what is type casing?
+
+changing data type of variables/objects
+a = input("Enter a no")
+type(a)
+int(a)
+
+
+x = "10"
+y = int(x)
+print(type(x))
+print(type(y))
+
+
+x = "12.34"
+y = float(x) 
+print(type(x))
+print(type(y))
+
+x = 0
+y = bool(x)  # Converts 0 to False
+print(type(x))
+print(type(y))
+
+
+q10: what is difference between Implicity type casting and explicit type casting?
+automatically get converted int/number/float from string into number
+
+q11: what is the purpose of conditional statement in python?
+
+==> these used to write conditions and change flow of program 
+    logic
+
+
+q12: How does elif statement work?
+     
+    excute statements if condition statisfy
+
+q13 what is difference of for and while loop
+
+>> for loops >>iterate over a sequence of elements >> strings, list
+>> #while>>repeatedly executed a block of code untill a condition is met
+
+
+Q14 describe a scenerio where while loop is more usefull then for loop
+
+answer: A while loop is more suitable than a for loop in situations where the number of iterations is not predetermined
+       while loop is driven by a condition, which may change dynamically during the loop's execution
+
+Scenario: User Login Attempts
+Consider a situation where a system allows users to try logging in, but it limits the number of attempts. The loop should continue prompting the user to enter the correct password until they either succeed or exceed the maximum allowed attempts.
+
+attempts = 0
+max_attempts = 3
+password = "securepassword"
+
+while attempts < max_attempts:
+    entered_password = input("Enter your password: ")
+    if entered_password == password:
+        print("Login successful!")
+        break
+    else:
+        print("Incorrect password. Try again.")
+        attempts += 1
+
+if attempts == max_attempts:
+    print("Too many failed attempts. Access denied.")
+
+
+
+
+Why the while loop is suitable:
+The number of iterations (login attempts) is not fixed at the start; it depends on how many incorrect attempts the user makes.
+
+>>A for loop would require a predetermined number of iterations, which doesn't fit well in this scenario because you need flexibility to respond to dynamic conditions
+
