@@ -1,0 +1,168 @@
+Q1: What are data structures and why are they important?
+lits/tuple/array/set/dictionary
+
+Q2. Exlain the difference between mutable and immutable data type?
+List/Set/Dictionary--Mutable
+   --do allow to modify list elements
+   --has value is not stable
+
+Tuple/string/integer/boolean---Immutable
+     Immutable types are often safer for concurrent or multi-threaded programming since they can't be altered accidentally.
+
+
+
+Q3: what is the main difference between list and tuple
+
+List is mutable but tuple is immutable
+
+Q4: descripe how dictionaries store data
+
+>> key value
+
+Q5: why might you use set instead of list in python
+ans: 
+set unique unordered collection of elements
+my_set = {1, 2, 3, 3, 2}
+print(my_set)  # Output: {1, 2, 3} (duplicates are removed)
+membership providing average O(1) time complexty
+Set: Sets can be more memory-efficient than lists
+ because list require indexing and can contain duplicate
+
+list can have duplicate elements and with unsymmetric data type
+Membership testing in a list takes O(n) time 
+
+Q6 What is a sting in python and how is it different in python
+
+String is collection of character endclosed with single or double quotes
+
+Q7: How does tuple ensure data integrity in python?
+Data integrity refers to the accuracy, consistency, and reliability of data throughout its lifecycle.
+
+
+In a multithreaded program, tuples can help ensure that data passed between threads isn't accidentally modified. 
+tuples are immutable, they are generally faster than lists in terms of iteration and accessing elements.
+useful when passing data between functions, where you want to ensure that no one can inadvertently change the data.
+
+
+Q8: What is a hash table and how does it related to dictionaries in python?
+A hash table is a data structure that stores key-value pairs
+Python dictionaries are implemented using hash tables. This means that under the hood, a dictionary uses a hash table to store its key-value pairs
+
+
+Q9 can list contain different datatype in python?
+--> yes
+
+Q10 explain why string are immutable in python?
+it's important to note that while strings are immutable, 
+   the variables that reference them are not. 
+
+my_string = "Hello"
+my_string = my_string + " World"   # no error
+my_string[0] = 'B'   # error
+my_string = 'B'    #No error
+   
+
+
+Q11: What are advantages dictionary brings over list in cetain task?
+
+
+                 Dictionary           List
+Time complexity: O(1)                 O(n)
+
+Dynamic Insertion/Deletion of Elements
+Dictionaries provide an efficient way to add or remove key-value pairs. Insertion and deletion are fast operations.
+Lists may need to shift elements around when an element is inserted or removed, which can be slower (O(n) time complexity).
+
+Dictionaries are ideal for sparse data structures, where only a few keys are used,
+
+dictionaries are Direct Mapping to Real-World Concepts
+
+
+Q12: describe scenerio where using tuple will be preferable then list
+
+when you want to refer tuple inside set then you can got with tuple instead of list
+ becasue tuples are hashable
+
+Bank account 
+
+Q13: How set handle duplicate values in python?
+
+A set in Python automatically removes duplicates.
+You can convert a list to a set and back to a list to remove duplicates
+
+Q14 How does "in" key word work differently for list and dictionaries?
+When you use in with a list, it checks whether a specific element is present in the list.
+When you use in with a dictionary, it checks for the presence of a key, not a value.
+
+
+# Define a dictionary
+my_dict = {'apple': 1, 'banana': 2, 'cherry': 3}
+print('apple' in my_dict)   # check for key
+print(1 in my_dict)   # check for value
+# in operator check for key
+
+
+my_list=['apple', 1, 'banana', 2, 'cherry', 3]
+print("banana" in my_list)
+
+
+Q15: Can you modify elements of tuple explain why and why not?
+Tuples in Python are immutable, meaning once they are created, their elements cannot be modified.
+
+
+Q16 what is nested dictionary and give an example of its use case?
+
+A nested dictionary in Python is a dictionary where some of the values are themselves dictionaries. This allows you to represent more complex data structures where each key can point to another dictionary, 
+which in turn can contain its own keys and values.
+Representing a Student's Grades
+# Nested dictionary where keys are student names
+# and values are dictionaries of subject grades
+student_grades = {
+    'Alice': {'Math': 85, 'Science': 92, 'English': 88},
+    'Bob': {'Math': 78, 'Science': 80, 'English': 85},
+    'Charlie': {'Math': 90, 'Science': 95, 'English': 92}
+}
+
+
+
+Storing a Product Catalog
+product_catalog = {
+    'Electronics': {
+        'Laptop': {'price': 1200, 'brand': 'Dell', 'stock': 50},
+        'Smartphone': {'price': 800, 'brand': 'Samsung', 'stock': 100}
+    },
+    'Furniture': {
+        'Sofa': {'price': 500, 'brand': 'Ikea', 'stock': 20},
+        'Table': {'price': 200, 'brand': 'Ikea', 'stock': 150}
+    }
+}
+
+
+Q17 describe the time complexity of accessig elements in dictionary
+     O(1)
+
+Q18 in what situations list are preferred over dictionaries
+
+Prefer Lists over Dictionaries when:
+You need to maintain a specific order of elements.
+You need to access elements by their index.
+You are working with homogeneous data.
+You need to dynamically append items.
+You need sequence operations like slicing or sorting.
+You don’t need key-value associations.
+
+If you are working with a collection of items of the same type, and you need to perform operations on them, lists are a good choice.
+
+
+when you have sparce collection of data then choose dictionary
+
+
+Q19 why are dictionaries considered unordered and how does that affect data retrival?
+dictionaries are not indexed so that order of data donot remain same
+
+Q20 explain the difference between a list and a dictionary in terms of data retrival
+time complexity for item search is same O(1) but insert is different
+      insert into list O(n) but insert into dictionary O(1)
+
+List: Faster for ordered operations like sorting
+Dictionaries: Faster for lookup operations due to the hash mapping of keys.
