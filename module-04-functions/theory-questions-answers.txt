@@ -1,0 +1,196 @@
+1. what is the difference between function and a method in python?
+It can be defined using the def keyword and is independent of any object.
+A method is a function that is associated with an object or a class
+
+Key Differences:
+Aspect	                  Function	                        Method
+Definition	          Defined outside of a class.	        Defined inside a class.
+Binding	                  Not bound to any object or class.	Bound to an object (instance method) or class (class method).
+First Parameter	          No special first parameter.	        Typically takes self (instance) or cls (class method).
+Usage	                  Called by the function name.	        Called on an object (instance) or class.
+Access to Data	          Cannot access the instance's attributes.	Can access and modify the attributes of an instance or class.
+
+
+2. explain the concept of function argument and parameter in python
+Parameter
+A parameter is a variable that is defined in the function definition. 
+It is placeholder for the values that will be passed to the function 
+when it is called.
+
+Argument
+An argument is the actual value or data that is passed to the function 
+when it is called
+
+
+3. what are the different way to define and call a function in python
+
+		1. Standard Function Definition
+		2. Function with Default Parameters
+		3. Function with Variable Number of Arguments (Arbitrary Arguments)
+				Using *args: This allows you to pass a variable number of positional arguments
+				def add_all(*args):
+					return sum(args)
+				result = add_all(1, 2, 3, 4, 5)
+				Using **kwargs:
+				This allows you to pass a variable number of keyword arguments (key-value pairs).
+
+				def print_info(**kwargs):
+					for key, value in kwargs.items():
+						print(f"{key}: {value}")
+				print_info(name="Alice", age=30)
+
+		4. Lambda Functions (Anonymous Functions)
+		5. Function Inside a Function (Nested Functions)
+		6. Recursive Functions
+		def factorial(n):
+			if n == 0:
+				return 1
+			else:
+				return n * factorial(n-1)
+		7. Function as an Argument (Passing Functions to Other Functions)
+
+
+4. what is the purpose of return statement in a python function?
+   >> return value from function to functiona call or on variable
+
+
+5. What are iterators in python and how do they differ from iterables?
+				  
+		Iterable
+		An iterable is any Python object that can return an iterator.
+		an iterable is an object that you can loop over (iterate over) using a for loop.
+
+		Examples of iterables:  lists, tuples, sets, strings, and dictionaries.
+
+		Iterator: 
+		Iterator: The object that takes care of accessing each element in the iterable, one at a time,
+
+
+		# Iterable: a list
+		my_list = [1, 2, 3]
+
+		# Get an iterator from the iterable
+		my_iterator = iter(my_list)
+		print(next(my_iterator))  
+
+-----------------------------------------------------
+6. explain the concept of generators in python and how they are defined
+
+Generators produce values one at a time and only when needed, making them memory-efficient.
+There are two ways to define a generator 
+	 Using a Generator Function (with yield)
+	 Using a Generator Expression
+ 
+ 
+  Generator Function (Using yield)
+		it uses the yield keyword to yield values one by one.
+		def count_up_to(n):
+		count = 1
+		while count <= n:
+			yield count  # Yield the current count
+			count += 1
+
+		# Create a generator object
+		counter = count_up_to(5)
+
+		# Iterate over the generator
+		for number in counter:
+		print(number)
+
+  Generator Expressions
+		squares = (x * x for x in range(1, 6))
+
+		# Iterate over the generator
+		for square in squares:
+		print(square)
+
+Advantages of Using Generators:
+		Memory Efficiency: Generators do not store all the values at once
+		Lazy Evaluation: Generators compute values only when needed
+		Infinite Sequences: Generators can represent infinite sequences
+
+How Generators Work Internally
+	it returns a generator object. This object can be used to iterate through the values, one at a time, 
+	using the next() function or a for loop. 
+-----------------------------------------------------
+7 what are the advantage of using generator over regular expresssion
+
+Advantages of Using Generators:
+		Memory Efficiency: Generators do not store all the values at once
+		Lazy Evaluation: Generators compute values only when needed
+		Infinite Sequences: Generators can represent infinite sequences
+
+8. what is lambda function in python and when it is used
+
+lambda function is consise way of creating lambda function also called as lambda expression
+
+lambda use:
+  >When You Need a Small Function for Short-Term Use
+  >In Functional Programming Functions like map(), filter(), and reduce() 
+      where you need to provide a simple function for a short operation.
+  > When You Don’t Need Reusability
+  > When Defining Simple Inline Functions for Use in Other Functions
+
+
+9. explain purpose and uasage of map function in python
+
+The map() function applies a function to every item of an iterable (e.g., a list) and returns a new iterable (map object).
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # Output: [1, 4, 9, 16]
+
+
+
+10. what is the difference between map()/reduce()/ and filter() function in python
+ 
+The map() function 
+applies a function to every item of an iterable  and returns a new iterable (map object).
+
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # Output: [1, 4, 9, 16]
+
+
+
+filter() function filters items in an iterable based on a function's condition
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # Output: [2, 4, 6]
+
+The reduce() function  
+applies a binary function cumulatively to the items of an iterable, reducing them to a single value.
+
+from functools import reduce
+numbers = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, numbers)
+print(product)  # Output: 24 (1 * 2 * 3 * 4)
+
+
+11. write internal mechanism for sum operation using reduce on given list [47,11,42,13]
+from functools import reduce
+mylist=[47,11,42,13]
+total= (reduce(lambda x,y: x+y,mylist))
+print(total)
+
+47  11
+ |    |
+ |    |
+ |    |
+  ----
+   |
+   58        42
+    |        |
+    |        |
+    |        |
+    ----------
+        |
+        |
+        100            13
+          |            |
+          |            |
+          |            |
+          --------------
+                |
+                |
+                |
+                113
